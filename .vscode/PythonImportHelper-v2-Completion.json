@@ -1,0 +1,106 @@
+[
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "HealthInsurance",
+        "importPath": "healthinsurance.HealthInsurance",
+        "description": "healthinsurance.HealthInsurance",
+        "isExtraImport": true,
+        "detail": "healthinsurance.HealthInsurance",
+        "documentation": {}
+    },
+    {
+        "label": "HealthInsurance",
+        "kind": 6,
+        "importPath": "src.healthinsurance.HealthInsurance",
+        "description": "src.healthinsurance.HealthInsurance",
+        "peekOfCode": "class HealthInsurance( object ):\n    def __init__( self ):\n        self.home_path = '/Users/meigarom.lopes/repos/pa004_health_insurance_cross_sell/health_insurance_cross-sell/'\n        self.annual_premium_scaler =            pickle.load( open( self.home_path + 'src/features/annual_premium_scaler.pkl', 'rb' ) )\n        self.age_scaler =                       pickle.load( open( self.home_path + 'src/features/age_scaler.pkl', 'rb' ) ) \n        self.vintage_scaler =                   pickle.load( open( self.home_path + 'src/features/vintage_scaler.pkl', 'rb' ) ) \n        self.target_encode_gender_scaler =      pickle.load( open( self.home_path + 'src/features/target_encode_gender_scaler.pkl', 'rb' ) )\n        self.target_encode_region_code_scaler = pickle.load( open( self.home_path + 'src/features/target_encode_region_code_scaler.pkl', 'rb' ) )\n        self.fe_policy_sales_channel_scaler =   pickle.load( open( self.home_path + 'src/features/fe_policy_sales_channel_scaler.pkl', 'rb' ) )\n    def data_cleaning( self, df1 ):",
+        "detail": "src.healthinsurance.HealthInsurance",
+        "documentation": {}
+    },
+    {
+        "label": "healthinsurance_predict",
+        "kind": 2,
+        "importPath": "src.handler",
+        "description": "src.handler",
+        "peekOfCode": "def healthinsurance_predict():\n    test_json = request.get_json()\n    if test_json: # there is data\n        if isinstance( test_json, dict ): # unique example\n            test_raw = pd.DataFrame( test_json, index=[0] )\n        else: # multiple example\n            test_raw = pd.DataFrame( test_json, columns=test_json[0].keys() )\n        # Instantiate Rossmann class\n        pipeline = HealthInsurance()\n        # data cleaning",
+        "detail": "src.handler",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "kind": 5,
+        "importPath": "src.handler",
+        "description": "src.handler",
+        "peekOfCode": "path = '/Users/meigarom.lopes/repos/pa004_health_insurance_cross_sell/health_insurance_cross-sell/'\nmodel = pickle.load( open( path + 'src/models/model_linear_regression.pkl', 'rb' ) )\n# initialize API\napp = Flask( __name__ )\n@app.route( '/predict', methods=['POST'] )\ndef healthinsurance_predict():\n    test_json = request.get_json()\n    if test_json: # there is data\n        if isinstance( test_json, dict ): # unique example\n            test_raw = pd.DataFrame( test_json, index=[0] )",
+        "detail": "src.handler",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "src.handler",
+        "description": "src.handler",
+        "peekOfCode": "model = pickle.load( open( path + 'src/models/model_linear_regression.pkl', 'rb' ) )\n# initialize API\napp = Flask( __name__ )\n@app.route( '/predict', methods=['POST'] )\ndef healthinsurance_predict():\n    test_json = request.get_json()\n    if test_json: # there is data\n        if isinstance( test_json, dict ): # unique example\n            test_raw = pd.DataFrame( test_json, index=[0] )\n        else: # multiple example",
+        "detail": "src.handler",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "src.handler",
+        "description": "src.handler",
+        "peekOfCode": "app = Flask( __name__ )\n@app.route( '/predict', methods=['POST'] )\ndef healthinsurance_predict():\n    test_json = request.get_json()\n    if test_json: # there is data\n        if isinstance( test_json, dict ): # unique example\n            test_raw = pd.DataFrame( test_json, index=[0] )\n        else: # multiple example\n            test_raw = pd.DataFrame( test_json, columns=test_json[0].keys() )\n        # Instantiate Rossmann class",
+        "detail": "src.handler",
+        "documentation": {}
+    }
+]
